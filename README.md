@@ -16,13 +16,16 @@ affective_component/
 - **Purpose**: Frozen reference implementation
 - **Status**: ⚠️ DO NOT MODIFY
 - **Use**: Baseline benchmarks and dissertation comparisons
-- **Metrics**: 0.62s/sentence, F1=0.66
+- **Performance**: ~730ms/sentence (measured)
+- **Benchmark Status**: ⚠️ **PENDING** - F1 scores not yet validated with test datasets
 
 ### `affective_improved/`
 - **Purpose**: Optimized version with performance/accuracy improvements
 - **Status**: 🔧 Active development
 - **Use**: PRIMA integration
-- **Target**: 0.03s/sentence (20x faster), F1=0.74
+- **Target Performance**: ~30ms/sentence (20x faster goal)
+- **Target Accuracy**: F1=0.74 (projected after improvements)
+- **Benchmark Status**: ⚠️ **PENDING** - awaiting implementation and testing
 
 ## Usage
 
