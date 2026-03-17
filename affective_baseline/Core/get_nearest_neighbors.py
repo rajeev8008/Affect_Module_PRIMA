@@ -34,7 +34,6 @@ def get_nearest_neighbours(embeding,df):
     # print(Counter(neaarest_neighbs_labels))
     t2 = datetime.now()
     diff = t2 - t1
-    print('time nn and score', diff)
 
     return [n_score_dict,{'words':neaarest_neighbs_words,'embs':neaarest_neighbs_embs,'labels':neaarest_neighbs_labels}]
 

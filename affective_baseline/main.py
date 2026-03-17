@@ -10,7 +10,7 @@ vocab_path = r"Vocabularies\goemotion_vocabulary.csv"  # 14 Plutchik emotions
 
 
 
-def emo_detecct_document(text):
+def emo_detect_document(text):
     df = pd.read_csv(vocab_path)
     df = df.dropna()
     df['embedding'] = [ast.literal_eval(i) for i in df['embedding'].values.tolist()]
@@ -20,7 +20,7 @@ def emo_detecct_document(text):
               'fear':0,
               'sadness':0,
               'trust':0,
-              'senerity':0,
+              'serenity':0,
               'joy_ecstasy':0,
               'admire':0,
               'acceptance':0,
@@ -33,7 +33,7 @@ def emo_detecct_document(text):
 
     for each_s in a_list:
         # print(each_s)
-        pred = build_profile(sentence,1,df,tokenizer,model,keyword_extraction=True,modifier_detection=True)
+        pred = build_profile(each_s,1,df,tokenizer,model,keyword_extraction=True,modifier_detection=True)
         for each_k in pred[0].keys():
             output_emo_dict[each_k]=output_emo_dict[each_k]+pred[0][each_k]
 
