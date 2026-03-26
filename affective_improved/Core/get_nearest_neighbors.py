@@ -1,44 +1,41 @@
-import numpy
+import numpy as np
 from datetime import datetime
-from collections import Counter
-from sklearn.metrics.pairwise import cosine_similarity
 from Core.scoring import calculate_scores
 
 
+def build_vocab_matrix(df):
+    matrix = np.array(df['embedding'].tolist(), dtype='float32')
+    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+    norms = np.where(norms == 0, 1e-9, norms)
+    return matrix / norms
 
-def get_nearest_neighbours(embeding,df):
+
+def get_nearest_neighbours(embedding, df, vocab_matrix, top_k=50):
+
     t1 = datetime.now()
-    tuples = []
 
-    for i, row_e in df.iterrows():
+    query = np.array(embedding[0], dtype='float32')
+    norm = np.linalg.norm(query)
+    if norm > 0:
+        query = query / norm
 
-        dis = cosine_similarity([row_e['embedding']], embeding)
-        tuples.append([row_e['token'], row_e['fourteen_label'], dis, row_e['embedding']])
+    scores = vocab_matrix @ query
 
-    s_tup = sorted(tuples, key=lambda x: x[2])  # sort tuples based on the cosine distance
-    neaarest_neighbs_words = []
-    neaarest_neighbs_embs = []
-    neaarest_neighbs_labels = []
-    for i, m in enumerate(s_tup[::-1]):
-        # print(m)
-        if (i < 50):  # getting the nearest 100 neighbours
-            neaarest_neighbs_words.append(m[0])
-            neaarest_neighbs_embs.append(m[3])
-            neaarest_neighbs_labels.append(m[1])
-    n_score_dict = calculate_scores(neaarest_neighbs_words, neaarest_neighbs_labels)
+    if len(scores) <= top_k:
+        top_idx = np.argsort(scores)[::-1]
+    else:
+        top_idx = np.argpartition(scores, -top_k)[-top_k:]
+        top_idx = top_idx[np.argsort(scores[top_idx])[::-1]]
 
-    # neaarest_neighbs_words.append('sentence')
-    # neaarest_neighbs_embs.append(numpy.array(embeding[0]))
-    # neaarest_neighbs_labels.append('input')
+    rows = df.iloc[top_idx]
 
-    # print(Counter(neaarest_neighbs_labels))
+    words = rows['token'].tolist()
+    labels = rows['fourteen_label'].tolist()
+    embs = vocab_matrix[top_idx].tolist()
+
+    n_score_dict = calculate_scores(words, labels)
+
     t2 = datetime.now()
-    diff = t2 - t1
-    print('time nn and score', diff)
+    print("time nn and score", t2 - t1)
 
-    return [n_score_dict,{'words':neaarest_neighbs_words,'embs':neaarest_neighbs_embs,'labels':neaarest_neighbs_labels}]
-
-
-
-def get_nearest_neighbors_alpha(embedding,df):
-    print()
+    return [n_score_dict, {"words": words, "embs": embs, "labels": labels}]
