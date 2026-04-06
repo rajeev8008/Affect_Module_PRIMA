@@ -1,5 +1,5 @@
 import torch
-import matplotlib.pyplot as plt
+
 
 from Core.get_nearest_neighbors import get_nearest_neighbours
 from Core.modifier_handling import resolve_modifiers_and_negations, negations
