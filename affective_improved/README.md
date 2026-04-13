@@ -25,8 +25,8 @@ Optimized version with performance and accuracy improvements over baseline.
 - **Memory**: 0.8 GB VRAM (-47% reduction)
 
 ## Current Status
-- ✅ Copied from baseline
-- ⏳ Ready for improvements
+- Copied from baseline
+- Ready for improvements
 
 ---
 

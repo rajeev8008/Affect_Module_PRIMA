@@ -1,6 +1,6 @@
 # Affective Component Baseline
 
-**⚠️ DO NOT MODIFY THIS FOLDER ⚠️**
+**DO NOT MODIFY THIS FOLDER**
 
 This is the frozen baseline implementation of the Emotion AWARE framework.
 It serves as the reference for comparison with improved versions.
