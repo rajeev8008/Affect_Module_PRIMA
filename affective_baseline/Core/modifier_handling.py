@@ -66,30 +66,20 @@ def check_for_negations(top_candidates):
 
 
 def map_opposite_emotions(emo_dict):
-      opposite_emotions = {'anticipation': 'surprise',
-                         'anger': 'joy',
+      opposite_emotions = {'anticipation': 'amazement_surprise',
+                         'anger': 'joy_ecstasy',
                          'fear': 'trust',
                          'sadness': 'joy_ecstasy',
                          'trust': 'fear',
-                         'joy': 'sad',
-                         'surprise': 'anticipation',
-                         'disgust': 'joy',
-                         'senerity': 'distraction',
+                         'serenity': 'distraction',
                          'joy_ecstasy': 'sadness',
-                         'sad': 'joy',
-                         'admire': 'disgust',
-                         'acceptance': 'disgust',
+                         'admire': 'disgust_loathing',
+                         'acceptance': 'disgust_loathing',
                          'amazement_surprise': 'anticipation',
-                         'distraction': 'senerity',
+                         'distraction': 'serenity',
                          'boredom': 'interest_vigilance',
                          'disgust_loathing': 'joy_ecstasy',
-                         'interest_vigilance': 'boredom',
-                         'negative': 'positive',
-                         'positive': 'negative',
-                         'model_strong': 'model_weak',
-                         'model_weak': 'model_strong',
-                         'uncertainty': 'uncertainty',
-                         'litigious': 'litigious'
+                         'interest_vigilance': 'boredom'
                          }
       opposed_dict = {}
 
@@ -107,17 +97,29 @@ def map_opposite_emotions(emo_dict):
 
 def resolve_modifiers_and_negations(top_windows,sentence_tokens,emo_candidates,normalized_score_dict ):
     normalized_score_dict = {k: v for k, v in sorted(normalized_score_dict.items(), key=lambda item: item[1])}
-    # print('top_windows',top_windows)
-    # print('sentence_tokens', sentence_tokens)
-    # print('emo_candidates', emo_candidates)
-    # print('normalized_score_dict', normalized_score_dict)
     fixed_top_windows = []
     for i, emoWord in enumerate(top_windows):
-        # print(emoWord)
-        end_ind_int = sentence_tokens.index(emoWord)
-        start_ind_int = end_ind_int - 3
-        if start_ind_int < 0:
-            start_ind_int = 0
+        # Safe positional search: handle multi-word windows and duplicates
+        end_ind_int = -1
+        emo_words = emoWord.split(' ')
+        if len(emo_words) == 1:
+            # Single word: find first occurrence
+            for idx, tok in enumerate(sentence_tokens):
+                if tok.lower() == emoWord.lower():
+                    end_ind_int = idx
+                    break
+        else:
+            # Multi-word: find the position of the last word in the window
+            for idx in range(len(sentence_tokens) - len(emo_words) + 1):
+                window = ' '.join(sentence_tokens[idx:idx+len(emo_words)])
+                if window.lower() == emoWord.lower():
+                    end_ind_int = idx + len(emo_words) - 1
+                    break
+        if end_ind_int == -1:
+            # Word not found — skip modifier detection for this window
+            fixed_top_windows.append(emoWord.lower())
+            continue
+        start_ind_int = max(0, end_ind_int - 3)
         text_chunk_int = (' ').join(sentence_tokens[start_ind_int:end_ind_int])
         text_chunk_int = text_chunk_int.strip().lower()
         fixed_top_windows.append(text_chunk_int)
@@ -133,27 +135,15 @@ def resolve_modifiers_and_negations(top_windows,sentence_tokens,emo_candidates,n
                 in_sc = float(im_splits[2])
                 if (len(int_w.split()) == 1):
                     if int_w in text_chunk_int.split():
-                        print('got single word modifier')
-                        # print('emo', emo_candidates[emoWord])
                         crnt_sc = normalized_score_dict[list(normalized_score_dict.keys())[-1]]
-                        # print(crnt_sc)
                         normalized_score_dict[list(normalized_score_dict.keys())[-1]] = fix_score(crnt_sc, in_dc, in_sc)
-                        # print('fixed', normalized_score_dict)
                 elif (len(int_w.split()) > 1):
                     if int_w in text_chunk_int:
-                        print('got multi word modifier')
-                        # print('emo', emo_candidates[emoWord])
-                        # print(fix_score(0.5,in_dc,in_sc))
                         crnt_sc = normalized_score_dict[list(normalized_score_dict.keys())[-1]]
-                        # print(crnt_sc)
                         normalized_score_dict[list(normalized_score_dict.keys())[-1]] = fix_score(crnt_sc, in_dc, in_sc)
 
-                        # print('fixed', normalized_score_dict)
-
-            # check nagations
-            print('check negation')
+            # check negations
             if (check_for_negations([text_chunk_int])):
-                print('Emotions are negated')
                 normalized_score_dict = map_opposite_emotions(normalized_score_dict)
 
     intensity_sum = 0

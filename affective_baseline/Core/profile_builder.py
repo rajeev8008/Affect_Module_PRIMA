@@ -35,7 +35,6 @@ def get_mean_pooling_emb(sentences,tokenizer,model):
     number_of_gpu_cores = 1  # Fixed: User has 1 GPU (RTX 3050)
     gpu_core = random.randint(0, number_of_gpu_cores-1)
     device = "cuda:"+str(gpu_core) if torch.cuda.is_available() else "cpu"
-    print(device)
     encoded_input = tokenizer(sentences, padding=True, truncation=True, max_length=128, return_tensors='pt').to(device)
     # Compute token embeddings
     with torch.no_grad():
@@ -106,7 +105,7 @@ def build_profile(sentence ,window_size,df,tokenizer,model,keyword_extraction,mo
         # for kk in s_tup[::-1][:5]:
         #   print(kk)
         candidate_dict = s_tup[::-1][:5]
-        print('*********')
+
 
 
         # emo_candidates = map_candidate_to_theme(neighbour_dict, candidate_dict)
@@ -174,42 +173,7 @@ def check_for_negations(top_candidates):
                 neg = True
     return neg
 
-# def sum_up_dicts(emo_dicts):
-#     sum_dict = {
-#         'negative': 0,
-#         'positive': 0,
-#         'uncertainty': 0,
-#         'litigious': 0,
-#         'model_strong': 0,
-#         'model_weak': 0,
-#         'anticipation': 0,
-#         'anger': 0,
-#         'fear': 0,
-#         'sadness': 0,
-#         'trust': 0,
-#         'senerity': 0,
-#         'joy_ecstasy': 0,
-#         'joy': 0,
-#         'sad': 0,
-#         'admire': 0,
-#         'acceptance': 0,
-#         'amazement_surprise': 0,
-#         'surprise': 0,
-#         'distraction': 0,
-#         'boredom': 0,
-#         'disgust_loathing': 0,
-#         'disgust': 0,
-#         'interest_vigilance': 0}
-#
-#     for each_dict in emo_dicts:
-#         for each_k in each_dict.keys():
-#             sum_dict[each_k] = sum_dict[each_k] + each_dict[each_k]
-#     final_sum_dict = sum_dict.copy()
-#     for k in sum_dict.keys():
-#         if sum_dict[k] == 0:
-#             del final_sum_dict[k]
-#     print(final_sum_dict)
-#     return final_sum_dict
+
 
 
 

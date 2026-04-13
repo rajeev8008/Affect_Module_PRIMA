@@ -1,0 +1,487 @@
+{
+  "Study 1 (2-emo, ISEAR)": {
+    "accuracy": 0.79,
+    "positive": {
+      "precision": {
+        "val": 0.7648305084745762,
+        "ci": [
+          0.73700213371266,
+          0.7906014023732469
+        ]
+      },
+      "recall": {
+        "val": 0.7847826086956522,
+        "ci": [
+          0.7574686872634889,
+          0.8089022127052106
+        ]
+      },
+      "f1": {
+        "val": 0.7746781115879828,
+        "ci": [
+          0.7539535679653185,
+          0.7951249228972811
+        ]
+      }
+    },
+    "negative": {
+      "precision": {
+        "val": 0.8125,
+        "ci": [
+          0.7889837235340319,
+          0.8359963325070383
+        ]
+      },
+      "recall": {
+        "val": 0.7944444444444444,
+        "ci": [
+          0.7700061287321235,
+          0.8181066952523371
+        ]
+      },
+      "f1": {
+        "val": 0.8033707865168539,
+        "ci": [
+          0.7858115109731305,
+          0.8213669729078303
+        ]
+      }
+    },
+    "avg_time_ms": 508.9936873912811
+  },
+  "Study 2 (4-common, ISEAR)": {
+    "joy": {
+      "f1": {
+        "val": 0.4776604386677498,
+        "ci": [
+          0.4421396004119809,
+          0.5090356028665297
+        ]
+      }
+    },
+    "anger": {
+      "f1": {
+        "val": 0.3779527559055118,
+        "ci": [
+          0.3166522988505747,
+          0.43831188695578593
+        ]
+      }
+    },
+    "fear": {
+      "f1": {
+        "val": 0.39759036144578314,
+        "ci": [
+          0.32748494395030664,
+          0.4607420372074777
+        ]
+      }
+    },
+    "sadness": {
+      "f1": {
+        "val": 0.5167173252279635,
+        "ci": [
+          0.4791322705634221,
+          0.5533627868909688
+        ]
+      }
+    },
+    "weighted_f1": {
+      "val": 0.4659421041455928,
+      "ci": [
+        0.44120901774299126,
+        0.4892837259234752
+      ]
+    }
+  },
+  "Study 3 (4-rare, GoEmotions)": {
+    "disgust": {
+      "f1": {
+        "val": 0.47043010752688175,
+        "ci": [
+          0.4233625034215145,
+          0.5111666080618866
+        ]
+      }
+    },
+    "surprise": {
+      "f1": {
+        "val": 0.3401869158878505,
+        "ci": [
+          0.286903698188136,
+          0.3921006864233384
+        ]
+      }
+    },
+    "trust": {
+      "f1": {
+        "val": 0.5494775660725261,
+        "ci": [
+          0.5205118904615462,
+          0.5776518122080535
+        ]
+      }
+    },
+    "anticipation": {
+      "f1": {
+        "val": 0.3916083916083916,
+        "ci": [
+          0.3518061683133453,
+          0.43038042447076685
+        ]
+      }
+    },
+    "weighted_f1": {
+      "val": 0.47205556697088247,
+      "ci": [
+        0.4498627921746596,
+        0.49293503615104106
+      ]
+    }
+  },
+  "Study 4 (Granularity)": {
+    "demos": [
+      {
+        "text": "That's a maryland fan comment. You should be ashamed of yourself.",
+        "14_top": "disgust_loathing",
+        "8_top": "disgust",
+        "2_top": "negative"
+      },
+      {
+        "text": "Our father will protect us <3",
+        "14_top": "trust",
+        "8_top": "trust",
+        "2_top": "positive"
+      },
+      {
+        "text": "But I'm sort of confused as to how the pic was taken, sorry if you said it but I'm a bit stupid and tired",
+        "14_top": "distraction",
+        "8_top": "surprise",
+        "2_top": "positive"
+      },
+      {
+        "text": "Best bedtime christmas story ever.",
+        "14_top": "joy_ecstasy",
+        "8_top": "joy",
+        "2_top": "positive"
+      }
+    ]
+  },
+  "Study 5 (Finance, PhraseBank)": {
+    "accuracy": 0.7639902676399026,
+    "positive": {
+      "precision": {
+        "val": 0.7248,
+        "ci": [
+          0.6882041878561522,
+          0.7570989184317259
+        ]
+      },
+      "recall": {
+        "val": 0.9536842105263158,
+        "ci": [
+          0.935064935064935,
+          0.9713055818353831
+        ]
+      },
+      "f1": {
+        "val": 0.8236363636363636,
+        "ci": [
+          0.8003475935828878,
+          0.8473666780716317
+        ]
+      }
+    },
+    "negative": {
+      "precision": {
+        "val": 0.8883248730964467,
+        "ci": [
+          0.8432295778924993,
+          0.931373949579832
+        ]
+      },
+      "recall": {
+        "val": 0.5043227665706052,
+        "ci": [
+          0.45141453344343513,
+          0.5540241437048126
+        ]
+      },
+      "f1": {
+        "val": 0.6433823529411765,
+        "ci": [
+          0.5946944103194104,
+          0.6863136520501294
+        ]
+      }
+    },
+    "avg_time_ms": 387.5930996706886
+  },
+  "Study 6 (Tech, Senti4SD)": {
+    "accuracy": 0.7182866556836903,
+    "positive": {
+      "precision": {
+        "val": 0.6793478260869565,
+        "ci": [
+          0.6494541706264355,
+          0.7046730081211233
+        ]
+      },
+      "recall": {
+        "val": 0.8250825082508251,
+        "ci": [
+          0.7995541268933843,
+          0.8489171446442902
+        ]
+      },
+      "f1": {
+        "val": 0.7451564828614009,
+        "ci": [
+          0.7229687624037469,
+          0.7657004451904832
+        ]
+      }
+    },
+    "negative": {
+      "precision": {
+        "val": 0.7782426778242678,
+        "ci": [
+          0.7478787803962625,
+          0.8077020202020202
+        ]
+      },
+      "recall": {
+        "val": 0.6118421052631579,
+        "ci": [
+          0.5816172191609086,
+          0.6412480133493722
+        ]
+      },
+      "f1": {
+        "val": 0.6850828729281768,
+        "ci": [
+          0.6579735427427005,
+          0.7102965701241937
+        ]
+      }
+    },
+    "avg_time_ms": 412.56148641021747
+  },
+  "Study 7 (Modifiers)": {
+    "mean_original": 0.62185,
+    "mean_intensified": 0.672,
+    "mean_inhibited": 0.5474375
+  },
+  "Study 7 (Table 10)": [
+    {
+      "sent": "Work was good for the first half",
+      "val": "\u2013",
+      "intensity": 0,
+      "top": [
+        [
+          "acceptance",
+          0.336
+        ],
+        [
+          "joy_ecstasy",
+          0.254
+        ]
+      ]
+    },
+    {
+      "sent": "Work was incredibly good for the first half",
+      "val": "+",
+      "intensity": 0.9,
+      "top": [
+        [
+          "joy_ecstasy",
+          0.409
+        ],
+        [
+          "acceptance",
+          0.2
+        ]
+      ]
+    },
+    {
+      "sent": "Work was very good for the first half",
+      "val": "+",
+      "intensity": 0.8,
+      "top": [
+        [
+          "acceptance",
+          0.446
+        ],
+        [
+          "joy_ecstasy",
+          0.189
+        ]
+      ]
+    },
+    {
+      "sent": "Work was quite good for the first half",
+      "val": "+",
+      "intensity": 0.6,
+      "top": [
+        [
+          "acceptance",
+          0.403
+        ],
+        [
+          "joy_ecstasy",
+          0.217
+        ]
+      ]
+    },
+    {
+      "sent": "Work was considerably good for the first half",
+      "val": "+",
+      "intensity": 0.6,
+      "top": [
+        [
+          "joy_ecstasy",
+          0.423
+        ],
+        [
+          "acceptance",
+          0.213
+        ]
+      ]
+    },
+    {
+      "sent": "Work was almost good for the first half",
+      "val": "\u2212",
+      "intensity": 0.2,
+      "top": [
+        [
+          "acceptance",
+          0.27
+        ],
+        [
+          "joy_ecstasy",
+          0.256
+        ]
+      ]
+    },
+    {
+      "sent": "Work was kinda good for the first half",
+      "val": "\u2212",
+      "intensity": 0.3,
+      "top": [
+        [
+          "joy_ecstasy",
+          0.288
+        ],
+        [
+          "acceptance",
+          0.234
+        ]
+      ]
+    },
+    {
+      "sent": "Work was sort of good for the first half",
+      "val": "\u2212",
+      "intensity": 0.4,
+      "top": [
+        [
+          "acceptance",
+          0.315
+        ],
+        [
+          "joy_ecstasy",
+          0.218
+        ]
+      ]
+    }
+  ],
+  "Study 8 (Negation)": {
+    "original_f1": 0.8716460268317853,
+    "negated_f1": 0.24537694632508872
+  },
+  "Study 9 (Explainability)": [
+    {
+      "text": "The son said: \"Most gracious father, I will show her to you in the form of a beautiful flower,\" and he thrust his hand into his pocket and brought forth the pink, and placed it on the royal table, and it was so beautiful that the king had never seen one to equal it",
+      "keywords": [
+        "gracious"
+      ],
+      "scores": [
+        [
+          "acceptance",
+          0.384
+        ],
+        [
+          "joy_ecstasy",
+          0.307
+        ],
+        [
+          "anger",
+          0.071
+        ],
+        [
+          "interest_vigilance",
+          0.07
+        ],
+        [
+          "anticipation",
+          0.06
+        ]
+      ]
+    },
+    {
+      "text": "The king ordered the man to be brought before him, and threatened with angry words that unless he could before the morrow point out the thief, he himself should be looked upon as guilty and executed",
+      "keywords": [
+        "angry"
+      ],
+      "scores": [
+        [
+          "anger",
+          0.779
+        ],
+        [
+          "disgust_loathing",
+          0.12
+        ],
+        [
+          "boredom",
+          0.052
+        ],
+        [
+          "fear",
+          0.029
+        ],
+        [
+          "joy_ecstasy",
+          0.02
+        ]
+      ]
+    },
+    {
+      "text": "\"It was saying, 'You are so beautiful, I like you very much. 'Tweet, tweet,\" sang the bird, as he flew out into the green woods, and Tiny felt very sad. The little prince was at first quite frightened at the bird. It was like a giant, compared to such a delicate little creature as himself. But when he saw Tiny, he was delighted, and thought her the prettiest little maiden he had ever seen",
+      "keywords": [
+        "frightened"
+      ],
+      "scores": [
+        [
+          "fear",
+          0.34
+        ],
+        [
+          "acceptance",
+          0.146
+        ],
+        [
+          "anticipation",
+          0.119
+        ],
+        [
+          "joy_ecstasy",
+          0.099
+        ],
+        [
+          "disgust_loathing",
+          0.081
+        ]
+      ]
+    }
+  ]
+}

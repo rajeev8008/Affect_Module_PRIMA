@@ -1,0 +1,216 @@
+{
+  "Study 1 (2-emo, ISEAR)": {
+    "accuracy": 0.79,
+    "precision": 0.7906,
+    "recall": 0.79,
+    "f1_weighted": 0.7902,
+    "per_class_f1": {
+      "negative": 0.8034,
+      "positive": 0.7747
+    },
+    "avg_time_ms": 689.54,
+    "total_samples": 2000,
+    "errors": 0
+  },
+  "Study 2 (4-common, ISEAR)": {
+    "accuracy": 0.3552,
+    "precision": 0.7004,
+    "recall": 0.3552,
+    "f1_weighted": 0.4659,
+    "per_class_f1": {
+      "anger": 0.378,
+      "anticipation": 0.0,
+      "disgust": 0.0,
+      "fear": 0.3976,
+      "joy": 0.4777,
+      "sadness": 0.5167,
+      "surprise": 0.0,
+      "trust": 0.0
+    },
+    "avg_time_ms": 533.81,
+    "total_samples": 1934,
+    "errors": 0
+  },
+  "Study 3 (4-rare, GoEmotions)": {
+    "accuracy": 0.3906,
+    "precision": 0.638,
+    "recall": 0.3906,
+    "f1_weighted": 0.4706,
+    "per_class_f1": {
+      "anger": 0.0,
+      "anticipation": 0.3669,
+      "disgust": 0.478,
+      "fear": 0.0,
+      "joy": 0.0,
+      "sadness": 0.0,
+      "surprise": 0.3404,
+      "trust": 0.5383
+    },
+    "avg_time_ms": 710.5,
+    "total_samples": 2404,
+    "errors": 0
+  },
+  "Study 3 (4-rare, SemEval)": {
+    "accuracy": 0.2195,
+    "precision": 1.0,
+    "recall": 0.2195,
+    "f1_weighted": 0.36,
+    "per_class_f1": {
+      "anger": 0.0,
+      "anticipation": 0.36,
+      "disgust": 0.0,
+      "fear": 0.0,
+      "joy": 0.0,
+      "sadness": 0.0,
+      "surprise": 0.0,
+      "trust": 0.0
+    },
+    "avg_time_ms": 584.57,
+    "total_samples": 123,
+    "errors": 0
+  },
+  "Study 4 (Granularity)": {
+    "demos": [
+      {
+        "text": "I\u2019m really sorry about your situation :( Although I love the names Sapphira, Cir",
+        "14_top": "sadness",
+        "8_top": "sadness",
+        "2_top": "negative"
+      },
+      {
+        "text": "It's wonderful because it's awful. At not with.",
+        "14_top": "disgust_loathing",
+        "8_top": "disgust",
+        "2_top": "negative"
+      },
+      {
+        "text": "Kings fan here, good luck to you guys! Will be an interesting game to watch! ",
+        "14_top": "anticipation",
+        "8_top": "anticipation",
+        "2_top": "positive"
+      },
+      {
+        "text": "I didn't know that, thank you for teaching me something today!",
+        "14_top": "disgust_loathing",
+        "8_top": "disgust",
+        "2_top": "negative"
+      },
+      {
+        "text": "Thank you for asking questions and recognizing that there may be things that you",
+        "14_top": "acceptance",
+        "8_top": "trust",
+        "2_top": "positive"
+      },
+      {
+        "text": "You\u2019re welcome",
+        "14_top": "acceptance",
+        "8_top": "trust",
+        "2_top": "positive"
+      },
+      {
+        "text": "100%! Congrats on your job too!",
+        "14_top": "acceptance",
+        "8_top": "trust",
+        "2_top": "positive"
+      },
+      {
+        "text": "I\u2019m sorry to hear that friend :(. It\u2019s for the best most likely if she didn\u2019t ac",
+        "14_top": "sadness",
+        "8_top": "sadness",
+        "2_top": "negative"
+      },
+      {
+        "text": "Girlfriend weak as well, that jump was pathetic.",
+        "14_top": "sadness",
+        "8_top": "sadness",
+        "2_top": "negative"
+      },
+      {
+        "text": "[NAME] has towed the line of the Dark Side. He wouldn't cross it by doing someth",
+        "14_top": "sadness",
+        "8_top": "sadness",
+        "2_top": "negative"
+      }
+    ]
+  },
+  "Study 5 (Finance, PhraseBank)": {
+    "accuracy": 0.764,
+    "precision": 0.7938,
+    "recall": 0.764,
+    "f1_weighted": 0.7475,
+    "per_class_f1": {
+      "negative": 0.6434,
+      "positive": 0.8236
+    },
+    "avg_time_ms": 727.42,
+    "total_samples": 822,
+    "errors": 0
+  },
+  "Study 6 (Tech, Senti4SD)": {
+    "accuracy": 0.7183,
+    "precision": 0.7289,
+    "recall": 0.7183,
+    "f1_weighted": 0.7151,
+    "per_class_f1": {
+      "negative": 0.6851,
+      "positive": 0.7452
+    },
+    "avg_time_ms": 403.57,
+    "total_samples": 1821,
+    "errors": 0
+  },
+  "Study 7 (Modifiers)": {
+    "intensifier_accuracy": 0.675,
+    "inhibitor_accuracy": 0.7125,
+    "total_samples": 80
+  },
+  "Study 8 (Negation)": {
+    "negation_accuracy": 0.25,
+    "negation_f1": 0.2454,
+    "total_samples": 80
+  },
+  "Study 9 (Explainability)": {
+    "demos": [
+      {
+        "text": "I am terrified of public speaking.",
+        "detected": "fear",
+        "score": 0.69,
+        "keywords": [
+          "terrified"
+        ]
+      },
+      {
+        "text": "The sunset was absolutely beautiful and calming.",
+        "detected": "serenity",
+        "score": 0.41,
+        "keywords": [
+          "calming."
+        ]
+      },
+      {
+        "text": "I am furious about the unfair treatment.",
+        "detected": "anger",
+        "score": 0.743,
+        "keywords": [
+          "furious"
+        ]
+      },
+      {
+        "text": "She was surprised by the unexpected gift.",
+        "detected": "amazement_surprise",
+        "score": 0.747,
+        "keywords": [
+          "surprised"
+        ]
+      },
+      {
+        "text": "The news made me deeply sad.",
+        "detected": "sadness",
+        "score": 0.79,
+        "keywords": [
+          "sad."
+        ]
+      }
+    ]
+  }
+}

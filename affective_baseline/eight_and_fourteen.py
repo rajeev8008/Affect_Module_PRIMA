@@ -32,6 +32,8 @@ def ft_to_et(emo_dict):
         eight_dict['disgust'] += emo_dict['disgust_loathing']
     if ('senerity' in emo_dict.keys()):
         eight_dict['joy'] += emo_dict['senerity']
+    if ('serenity' in emo_dict.keys()):
+        eight_dict['joy'] += emo_dict['serenity']
     if ('boredom' in emo_dict.keys()):
         eight_dict['disgust'] += emo_dict['boredom']
     if ('acceptance' in emo_dict.keys()):
