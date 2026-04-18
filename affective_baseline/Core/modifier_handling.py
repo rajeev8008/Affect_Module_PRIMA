@@ -43,7 +43,7 @@ def map_candidate_to_emotion(neighbour_dict, candidate_dict):
         # print(each_cd[0])
         # print(dis_emo_dict)
         # print(max(dis_emo_dict, key=dis_emo_dict.get))
-        emo_candi_dict[each_cd[0]]:max(dis_emo_dict, key=dis_emo_dict.get)
+        emo_candi_dict[each_cd[0]] = max(dis_emo_dict, key=dis_emo_dict.get)
         # break
     return emo_candi_dict
 
@@ -53,6 +53,9 @@ def fix_score(current_score,in_dc,in_sc):
     final_score = current_score+(current_score*in_sc)
   elif(in_dc=='B_DECR'):
     final_score = current_score-(current_score*in_sc)
+  else:
+    # Unknown direction code — return score unchanged
+    final_score = current_score
   return final_score
 
 def check_for_negations(top_candidates):

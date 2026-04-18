@@ -1,0 +1,16 @@
+{
+    "input_to_affect_module": {
+        "raw_text": "Chefs not counting calories, study finds"
+    },
+    "output_to_memory_module": {
+        "raw_text": "Chefs not counting calories, study finds",
+        "dominant_emotions": {
+            "sadness": 0.248,
+            "disgust": 0.211,
+            "joy": 0.199,
+            "boredom": 0.100,
+            "interest_vigilance": 0.087
+        },
+        "vector_embedding": [0.120, -0.450, 0.880, 0.010]
+    }
+}
